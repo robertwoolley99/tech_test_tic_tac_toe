@@ -19,3 +19,21 @@ describe Board do
     end
   end
 end
+
+describe Board do
+  let(:board) { Board.new }
+  context 'Detect if we have a winner from plays' do
+    it 'detects a winner X from the left vertical' do
+      board.play('XA1')
+      board.play('XA2')
+      board.play('XA3')
+      expect(board.winner).to eq('X wins')
+    end
+    it 'detects a winner O from the left vertical' do
+      board.play('OA1')
+      board.play('OA2')
+      board.play('OA3')
+      expect(board.winner).to eq('O wins')
+    end
+  end
+end
