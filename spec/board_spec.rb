@@ -11,7 +11,7 @@ describe Board do
     it 'throws an error if a space is already occupied' do
       board.play('XA1')
       expect { board.play('OA1') }.to \
-      raise_error('Already played. Choose another square.')
+        raise_error('Already played. Choose another square.')
     end
     it 'throws an error if we try and play to a non-existent square' do
       expect { board.play('XA9') }.to \
@@ -34,6 +34,12 @@ describe Board do
       board.play('OA2')
       board.play('OA3')
       expect(board.winner).to eq('O wins')
+    end
+    it 'detects a winner X from the middle vertical' do
+      board.play('XB1')
+      board.play('XB2')
+      board.play('XB3')
+      expect(board.winner).to eq('X wins')
     end
   end
 end
