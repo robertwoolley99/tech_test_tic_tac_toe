@@ -2,6 +2,7 @@
 
 # Class which holds data state and logic
 class Board
+  attr_reader :grid, :game_status
   def initialize
     @grid = { 'A1' => '', 'B1' => '', 'C1' => '',
               'A2' => '', 'B2' => '', 'C2' => '',
@@ -54,5 +55,4 @@ class Board
       @game_status = @grid[@winning_lookup[element]] + ' wins'
     end
   end
-
 end

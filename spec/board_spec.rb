@@ -50,6 +50,18 @@ end
 
 describe Board do
   let(:board) { Board.new }
+  context 'Further winner checks' do
+    it 'detects a winner O from the southwest diagonal.' do
+      board.play('OA3')
+      board.play('OB2')
+      board.play('OC1')
+      expect(board.winner).to eq('O wins')
+    end
+  end
+end
+
+describe Board do
+  let(:board) { Board.new }
   context 'Check that we have no winner too!' do
     it 'finds no winner when play on one line' do
       board.play('OA2')
