@@ -55,13 +55,4 @@ class Board
     end
   end
 
-  # def win_scan
-  #
-  #
-  #   if @grid['A1'] == @grid['A3'] && @grid['A2'] == @grid['A1'] && \
-  #      @grid['A1'] != ''
-  #     @grid['A1'] + ' wins'
-  #   else 'no winner'
-  #   end
-  # end
 end
