@@ -17,6 +17,10 @@ describe Board do
       expect { board.play('XA9') }.to \
         raise_error('Not a valid square. Please choose another one.')
     end
+    it 'throws an error if we use the wrong piece' do
+      expect { board.play('*A2') }.to \
+        raise_error('Sorry, noughts and crosses only. Choose again')
+    end
   end
 end
 
@@ -40,6 +44,18 @@ describe Board do
       board.play('XB2')
       board.play('XB3')
       expect(board.winner).to eq('X wins')
+    end
+  end
+end
+
+describe Board do
+  let(:board) { Board.new }
+  context 'Check that we have no winner too!' do
+    it 'finds no winner when play on one line' do
+      board.play('OA2')
+      board.play('XB2')
+      board.play('OA3')
+      expect(board.winner).to eq('No winner')
     end
   end
 end
